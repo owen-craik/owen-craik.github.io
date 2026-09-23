@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owen Craik — Data Scientist &amp; Statistician</title>
+<meta name="description" content="Portfolio of Owen Craik, data scientist and statistician (RSS GradStat). MSc in Applied Statistics and Data Science, machine learning, and applied research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F2F3EF;
+    --bg-alt: #E8E9E3;
+    --ink: #172136;
+    --ink-soft: #59627A;
+    --accent-blue: #2C5C87;
+    --accent-blue-soft: rgba(44,92,135,0.12);
+    --accent-gold: #A9761E;
+    --rule: rgba(23,33,54,0.14);
+    --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #10151F;
+      --bg-alt: #161D2C;
+      --ink: #E8EAE3;
+      --ink-soft: #98A2B8;
+      --accent-blue: #7CAAD6;
+      --accent-blue-soft: rgba(124,170,214,0.14);
+      --accent-gold: #E0B25C;
+      --rule: rgba(232,234,227,0.16);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #10151F;
+    --bg-alt: #161D2C;
+    --ink: #E8EAE3;
+    --ink-soft: #98A2B8;
+    --accent-blue: #7CAAD6;
+    --accent-blue-soft: rgba(124,170,214,0.14);
+    --accent-gold: #E0B25C;
+    --rule: rgba(232,234,227,0.16);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: var(--accent-blue); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover{ color: var(--accent-gold); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent-blue); outline-offset: 3px; }
+
+  .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 1.75rem; }
+
+  /* ---------- header / nav ---------- */
+  header.site{
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  header.site .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 0.75rem; }
+  .brand{ font-family: var(--font-serif); font-weight:600; font-size: 1.15rem; }
+  nav.primary ul{ list-style:none; display:flex; gap:1.5rem; margin:0; padding:0; flex-wrap:wrap; }
+  nav.primary a{ color: var(--ink-soft); text-decoration:none; font-size:0.92rem; }
+  nav.primary a:hover{ color: var(--accent-blue); }
+
+  /* ---------- section grid (main column + sidenote) ---------- */
+  .section-grid{
+    display:grid;
+    grid-template-columns: minmax(0,640px) 1fr;
+    gap: 2.5rem 3rem;
+    padding: 3.75rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .section-grid.no-rule{ border-top:none; }
+  .main-col > * + *{ margin-top: 1.1rem; }
+  .main-col h2{
+    font-family: var(--font-serif);
+    font-weight:600;
+    font-size: 1.65rem;
+    margin: 0 0 0.25rem 0;
+  }
+  .main-col .kicker{
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-top: 0.1rem;
+  }
+  .main-col p{ margin:0; }
+  .side-col{ align-self:start; }
+  .note{
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height:1.55;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--accent-blue);
+    padding-left: 1rem;
+  }
+  .note + .note{ margin-top:1.4rem; }
+  .note strong{ color: var(--ink); font-weight:500; display:block; margin-bottom:0.15rem; }
+
+  @media (max-width: 900px){
+    .section-grid{ grid-template-columns: 1fr; gap: 1.25rem; padding: 2.75rem 0; }
+    .side-col{ border-top: 1px dashed var(--rule); padding-top: 1.25rem; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ padding-top: 3rem; }
+  .hero .main-col h1{
+    font-family: var(--font-serif);
+    font-weight:700;
+    font-size: clamp(2.1rem, 4.5vw, 2.9rem);
+    line-height:1.12;
+    margin:0;
+  }
+  .hero .role{
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.15rem;
+    margin-top: 0.4rem;
+  }
+  .hero .intro{ max-width: 60ch; }
+  .hero-links{ display:flex; flex-wrap:wrap; gap: 0.9rem 1.5rem; margin-top: 1.6rem; }
+  .hero-links a{ font-size:0.95rem; }
+  .hero-chart{ width:100%; height:auto; }
+  .hero-chart figcaption{
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    margin-top: 0.6rem;
+    text-align:center;
+  }
+
+  /* quick facts list */
+  dl.facts{ margin:0; display:grid; gap: 1rem; }
+  dl.facts div{ display:block; }
+  dl.facts dt{
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    margin-bottom: 0.15rem;
+  }
+  dl.facts dd{ margin:0; font-size:0.92rem; }
+
+  /* ---------- tags ---------- */
+  ul.tags{ list-style:none; display:flex; flex-wrap:wrap; gap:0.5rem; margin: 0.75rem 0 0 0; padding:0; }
+  ul.tags li{
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.28rem 0.55rem;
+    color: var(--ink-soft);
+  }
+
+  .cta-link{ display:inline-block; margin-top:0.4rem; font-size:0.92rem; }
+
+  /* ---------- skills ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 2rem;
+  }
+  .skills-grid h3{
+    font-family: var(--font-serif);
+    font-weight:600;
+    font-size: 1.05rem;
+    margin: 0 0 0.6rem 0;
+  }
+
+  /* ---------- education list ---------- */
+  ul.timeline{ list-style:none; margin:0; padding:0; }
+  ul.timeline li{ padding: 1rem 0; border-top: 1px solid var(--rule); display:grid; grid-template-columns: 130px 1fr; gap:1rem; }
+  ul.timeline li:first-child{ border-top:none; }
+  ul.timeline .years{ font-family: var(--font-mono); font-size:0.82rem; color: var(--ink-soft); }
+  ul.timeline .what strong{ font-weight:600; }
+  @media (max-width:560px){
+    ul.timeline li{ grid-template-columns: 1fr; gap:0.25rem; }
+  }
+
+  /* ---------- footer ---------- */
+  footer.site{ border-top: 1px solid var(--rule); padding: 3rem 0; }
+  footer.site .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; align-items:baseline; }
+  footer.site p{ margin:0; color: var(--ink-soft); font-size:0.88rem; }
+  footer .links a{ margin-left:1.25rem; font-size:0.88rem; }
+  footer .links a:first-child{ margin-left:0; }
+
+  @media (max-width: 900px){
+    .hero .main-col{ order:1; }
+    .hero .side-col{ order:2; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">Owen Craik</div>
+    <nav class="primary" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="section-grid no-rule hero">
+    <div class="wrap" style="display:contents;">
+      <div class="main-col">
+        <h1>Owen Craik</h1>
+        <p class="role">Data scientist &amp; statistician</p>
+        <p class="intro">I build statistical and machine learning models that explain what's happening in messy, real-world data — climate records, satellite imagery, exam results — and predict what happens next. RSS Graduate Statistician with an MSc in Applied Statistics and Data Science and over a decade of quantitative work across research, industry and education.</p>
+        <div class="hero-links">
+          <a href="mailto:owen-craik@hotmail.co.uk">owen-craik@hotmail.co.uk</a>
+          <a href="https://www.linkedin.com/in/owen-craik/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/Craiky1506" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="side-col">
+        <figure class="hero-chart" role="img" aria-label="Illustrative lag-response curve, showing an effect that builds over several days before fading, with a shaded uncertainty band around the estimate.">
+          <svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="40" x2="50" y2="230" stroke="var(--ink-soft)" stroke-width="1"/>
+            <line x1="50" y1="230" x2="390" y2="230" stroke="var(--ink-soft)" stroke-width="1"/>
+            <line x1="50" y1="150" x2="390" y2="150" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 4"/>
+            <path d="M50,205 C90,170 115,140 145,132 C175,124 205,120 230,122 C265,125 300,140 335,165 C355,180 375,195 390,205 L390,225 C375,215 355,202 335,188 C300,163 265,150 230,147 C205,145 175,149 145,157 C115,165 90,188 50,220 Z"
+                  fill="var(--accent-blue)" opacity="0.14"/>
+            <path d="M50,213 C90,180 115,152 145,145 C175,138 205,134 230,136 C265,139 300,153 335,177 C355,192 375,203 390,215"
+                  fill="none" stroke="var(--accent-blue)" stroke-width="2.25"/>
+            <circle cx="230" cy="136" r="4" fill="var(--accent-gold)"/>
+            <text x="238" y="128" font-family="var(--font-mono)" font-size="10" fill="var(--ink-soft)">peak effect</text>
+            <text x="50" y="252" font-family="var(--font-mono)" font-size="10" fill="var(--ink-soft)">lag (days)</text>
+            <text x="8" y="44" font-family="var(--font-mono)" font-size="10" fill="var(--ink-soft)">effect</text>
+          </svg>
+          <figcaption>a lag-response curve — the shape at the centre of one of the projects below</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="section-grid">
+    <div class="main-col">
+      <h2>About</h2>
+      <p>I've spent the last ten-plus years moving between research and the classroom, always with quantitative methods at the centre. That's included building statistical and machine learning models on real climate, health, and satellite data, and teaching statistics and data science to students across three countries.</p>
+      <p>My MSc in Applied Statistics and Data Science, completed with distinction at the University of Strathclyde, sits alongside Graduate Statistician (GradStat) status from the Royal Statistical Society. I work comfortably across R and Python, and I'm equally happy explaining a model's assumptions to a non-technical audience as I am tuning its hyperparameters.</p>
+    </div>
+    <div class="side-col">
+      <dl class="facts">
+        <div>
+          <dt>Qualification</dt>
+          <dd>MSc Applied Statistics &amp; Data Science (Distinction), University of Strathclyde</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd>Graduate Statistician (GradStat), Royal Statistical Society, 2026</dd>
+        </div>
+        <div>
+          <dt>Experience</dt>
+          <dd>10+ years across research, industry, and education</dd>
+        </div>
+        <div>
+          <dt>Languages</dt>
+          <dd>English, Spanish (fluent), Portuguese (intermediate)</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section-grid no-rule" style="padding-bottom:1rem;">
+    <div class="main-col">
+      <h2 style="border-top:1px solid var(--rule); padding-top:3.75rem;">Selected projects</h2>
+    </div>
+    <div class="side-col"></div>
+  </section>
+
+  <section class="section-grid">
+    <div class="main-col">
+      <h2>Climate variability and suicide in Switzerland</h2>
+      <p class="kicker">MSc thesis — a multi-model analysis of explanatory and predictive power</p>
+      <p>This thesis asked how short-term weather variation relates to suicide rates, and whether that relationship is better captured by an explanatory model or a predictive one. I sourced and cleaned multi-source climate and suicide datasets, engineering lagged and rolling features so the models could pick up delayed effects rather than just same-day ones.</p>
+      <p>The core method was a Distributed Lag Non-Linear Model (DLNM), which is built to separate out effects that are non-linear and delayed at the same time — the shape in the hero graphic above is the kind of curve this method produces. I compared that against Random Forest and XGBoost models for predictive performance, and a Poisson regression on PCA-reduced climate variables for a more classical explanatory baseline. Models were evaluated using RMSE for predictive accuracy and AIC-based selection for model fit.</p>
+      <a class="cta-link" href="https://github.com/Craiky1506/climate-suicide-analysis" target="_blank" rel="noopener">View the R code on GitHub</a>
+      <ul class="tags">
+        <li>R</li><li>tidyverse</li><li>DLNM</li><li>Random Forest</li><li>XGBoost</li><li>PCA</li><li>Poisson regression</li>
+      </ul>
+    </div>
+    <div class="side-col">
+      <aside class="note">
+        <strong>Evaluated with</strong>
+        RMSE for predictive accuracy, AIC for model selection
+      </aside>
+      <aside class="note">
+        <strong>Why it's here</strong>
+        End-to-end statistical modelling: data engineering, method selection, and honest evaluation of trade-offs between explanatory and predictive models
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-grid">
+    <div class="main-col">
+      <h2>Mapping coffee phenology from space</h2>
+      <p class="kicker">Data Science Intern, Serasa Experian — São Paulo, Brazil</p>
+      <p>During a data science internship at Serasa Experian, I built a Python pipeline combining Landsat and MapBiomas satellite data to classify land cover and track the growth stages of coffee crops across the Caconde region. I trained and evaluated Random Forest and XGBoost classifiers, with most models exceeding 90% accuracy in identifying both land classes and crop growth stages.</p>
+      <p>The output was a hierarchical spatial classification map, delivered as a feasibility assessment for scaling this approach into automated, region-wide agricultural monitoring.</p>
+      <p class="kicker" style="margin-top:1rem;">The code for this project was developed for internal use during the internship and isn't publicly available; the summary above reflects the published feasibility outcome.</p>
+      <ul class="tags">
+        <li>Python</li><li>pandas</li><li>scikit-learn</li><li>Landsat</li><li>MapBiomas</li><li>Random Forest</li><li>XGBoost</li>
+      </ul>
+    </div>
+    <div class="side-col">
+      <aside class="note">
+        <strong>Result</strong>
+        90%+ accuracy across most land-class and growth-stage models
+      </aside>
+      <aside class="note">
+        <strong>Why it's here</strong>
+        Applied ML on remote-sensing data, from raw satellite imagery to a decision-ready map
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ TEACHING ============ -->
+  <section id="teaching" class="section-grid">
+    <div class="main-col">
+      <h2>Teaching data science, not just doing it</h2>
+      <p>A decade in the classroom has shaped how I work with data as much as any technical training has. Explaining a p-value to a room of sixteen-year-olds, or a model's limitations to students who built it themselves, is a good discipline for staying honest about what data can and can't tell you.</p>
+      <p><strong>Avenues São Paulo</strong> (2021–2026), Advanced Statistics, Data Science and Mathematics Teacher — designed and delivered a data science elective covering exploratory analysis, statistical modelling and machine learning to more than 40 students across three cohorts. Mentored student projects including a music recommendation system, a city-ranking algorithm, and a clustering analysis of skin-tone representation in media. Partnered with a local university on a data-driven recruitment model for a coding bootcamp, and coordinated an industry engagement with Experian where students worked a structured problem end to end.</p>
+      <p><strong>Colegio Panamericano</strong> (2017–2021), AP Statistics &amp; Mathematics Teacher — designed and launched a new AP Statistics programme covering inference, probability and regression through inquiry-led methods, with students scoring above the national average. Supervised applied projects including an athlete recruitment optimisation model and a media misinformation analysis, and led an interdisciplinary project forecasting population growth and resource needs for a simulated Mars colonisation scenario.</p>
+    </div>
+    <div class="side-col">
+      <aside class="note">
+        <strong>Reach</strong>
+        40+ students across 3 cohorts, one dedicated data science elective
+      </aside>
+      <aside class="note">
+        <strong>Why it's here</strong>
+        Communicating technical work clearly is a skill in its own right, and one this role has sharpened for a decade
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section-grid">
+    <div class="main-col">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div>
+          <h3>Machine learning</h3>
+          <p>Regression and classification, Random Forest, XGBoost, clustering (k-means, hierarchical), PCA, feature engineering, model evaluation (RMSE, MAE, AUC, cross-validation)</p>
+        </div>
+        <div>
+          <h3>Statistical analysis</h3>
+          <p>Hypothesis testing, GLMs, multivariate analysis, time-series analysis (DLNMs), experimental and survey design</p>
+        </div>
+        <div>
+          <h3>Programming &amp; tools</h3>
+          <p>Python (pandas, NumPy, scikit-learn, Matplotlib), R (tidyverse, RShiny), Tableau, Jupyter</p>
+        </div>
+        <div>
+          <h3>Working with people</h3>
+          <p>Communicating complex topics to non-technical audiences, project management, collaboration across multidisciplinary teams</p>
+        </div>
+      </div>
+    </div>
+    <div class="side-col">
+      <aside class="note">
+        <strong>Languages</strong>
+        English (native), Spanish (fluent), Portuguese (intermediate)
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="section-grid">
+    <div class="main-col">
+      <h2>Education &amp; qualifications</h2>
+      <ul class="timeline">
+        <li>
+          <span class="years">2026</span>
+          <span class="what">Graduate Statistician (GradStat), <strong>Royal Statistical Society</strong></span>
+        </li>
+        <li>
+          <span class="years">2022–2025</span>
+          <span class="what">MSc Applied Statistics with Data Science, Distinction — <strong>University of Strathclyde</strong> (Online)</span>
+        </li>
+        <li>
+          <span class="years">2010–2014</span>
+          <span class="what">BSc Honours in Mathematics, and Postgraduate Diploma in Education (Mathematics) — <strong>University of Sheffield</strong></span>
+        </li>
+      </ul>
+    </div>
+    <div class="side-col"></div>
+  </section>
+
+</main>
+
+<footer id="contact" class="site">
+  <div class="wrap">
+    <p>Open to data science and analytics roles.</p>
+    <div class="links">
+      <a href="mailto:owen-craik@hotmail.co.uk">Email</a>
+      <a href="https://www.linkedin.com/in/owen-craik/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Craiky1506" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
